@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
@@ -35,6 +36,7 @@ export default function Home() {
         <button onClick={sendMessageToDeveloper} className="bg-emerald-500 text-white p-3 rounded w-full font-bold">
           送信する
         </button>
+        <Link href="/url">URL</Link>
       </div>
     </main>
   );
