@@ -28,7 +28,7 @@ export async function POST(request: Request) {
         webpush.sendNotification(
           sub,
           JSON.stringify({
-            title: 'ユーザーからの通知',
+            title: 'たける',
             body: message || 'ボタンが押されました！',
 						tag: uniqueTag,
           })
