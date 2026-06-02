@@ -23,7 +23,23 @@ Next.js (App Router) と TypeScript、Web Push API (Service Worker) を使用し
 npm install
 ```
 
-### 2. 開発サーバーの起動
+### 2. 環境変数の設定 (.env.local)
+プロジェクトのルートに .env.local ファイルを作成し、以下の通り鍵と宛先情報を設定します。
+(※ VAPID鍵は npx web-push generate-vapid-keys で生成したものです)
+
+```Plaintext
+# 公開鍵（ブラウザ・サーバー両用）
+NEXT_PUBLIC_VAPID_PUBLIC_KEY=あなたのVAPID公開鍵
+
+# 秘密鍵（サーバー専用・隠蔽必須）
+VAPID_PRIVATE_KEY=あなたのVAPID秘密鍵
+
+# 開発者の端末情報（スマホ/PCで取得したJSONを1行の文字列にしたもの）
+PC_SUBSCRIPTION={"endpoint":"https://...","keys":{"p256dh":"...","auth":"..."}}
+MOBILE_SUBSCRIPTION={"endpoint":"https://...","keys":{"p256dh":"...","auth":"..."}}
+```
+
+### 3. 開発サーバーの起動
 
 ```bash
 npm run dev
