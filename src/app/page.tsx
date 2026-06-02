@@ -16,7 +16,6 @@ export default function Home() {
     }
   }, []);
 
-  // 通知を許可し、開発者用の「宛先情報」を発行する
   const setupNotification = async () => {
     const result = await Notification.requestPermission();
     setPermission(result);
@@ -24,18 +23,15 @@ export default function Home() {
     if (result === 'granted') {
       const registration = await navigator.serviceWorker.ready;
       
-      // ブラウザに「プッシュサーバーへの登録」を要求
       const subscription = await registration.pushManager.subscribe({
         userVisibleOnly: true,
         applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC_KEY)
       });
 
-      // これがあなた専用の宛先情報（JSON）
       setSubJson(JSON.stringify(subscription, null, 2));
     }
   };
 
-  // 誰でも押せる「開発者へ送信」ボタン
   const sendMessageToDeveloper = async () => {
     await fetch('/api/send', {
       method: 'POST',

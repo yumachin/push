@@ -5,7 +5,7 @@ const publicKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY || '';
 const privateKey = process.env.VAPID_PRIVATE_KEY || '';
 
 webpush.setVapidDetails(
-  'mailto:your-email@example.com', // あなたのメールアドレス（形式上必要）
+  'mailto:your-email@example.com', // メルアド
   publicKey,
   privateKey
 );
@@ -20,6 +20,8 @@ const TARGET_SUBSCRIPTIONS = [PC_SUBSCRIPTION, MOBILE_SUBSCRIPTION];
 export async function POST(request: Request) {
   const { message } = await request.json();
 
+	const uniqueTag = `msg-${Date.now()}`;
+
   try {
     await Promise.all(
       TARGET_SUBSCRIPTIONS.map((sub) =>
@@ -28,6 +30,7 @@ export async function POST(request: Request) {
           JSON.stringify({
             title: 'ユーザーからの通知',
             body: message || 'ボタンが押されました！',
+						tag: uniqueTag,
           })
         )
       )
