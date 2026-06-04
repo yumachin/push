@@ -28,7 +28,7 @@ export default function Home() {
       <div className="border p-4 rounded bg-white space-y-3">
         <input
           type="text"
-          placeholder="追加してほしい機能や改善点を書いてください"
+          placeholder="追加してほしい機能や改善点を書いてください。"
           value={inputMessage}
           onChange={(e) => setInputMessage(e.target.value)}
           className="border w-full p-2 rounded"
