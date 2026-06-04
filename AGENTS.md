@@ -5,8 +5,11 @@ This version has breaking changes — APIs, conventions, and file structure may 
 <!-- END:nextjs-agent-rules -->
 
 # Commit messages
-
-IMPORTANT:
 - All git commit messages MUST be written in Japanese.
 - Never generate commit messages in English.
 - Use concise Japanese commit messages.
+
+# Pull Requests
+- PR title should be short and summarize the feature.
+- Put detailed change summaries in the PR description.
+- Never place all change details in the PR title.
