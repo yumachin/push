@@ -5,7 +5,21 @@ This version has breaking changes — APIs, conventions, and file structure may 
 <!-- END:nextjs-agent-rules -->
 
 # Commit messages
-IMPORTANT:
-- All git commit messages MUST be written in Japanese.
-- Never generate commit messages in English.
-- Use concise Japanese commit messages.
+
+CRITICAL REQUIREMENT
+
+All git commit messages must be written in Japanese.
+
+Examples:
+
+Good:
+- ログイン画面のバリデーションを修正
+- Push通知機能を追加
+- 依存関係を更新
+
+Bad:
+- Fix login validation
+- Add push notification support
+- Update dependencies
+
+Never use English commit messages.
